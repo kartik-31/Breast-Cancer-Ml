@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Breast Cancer Prediction</title>
+        <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    </head>
+    <body>
+        <h1>Breast Cancer Prediction</h1>
+        <form action="{{url_for('predict')}}" method="post">
+            <input type="text" name='clump_thickness' placeholder='clump_thickness' required="required">
+            <input type="text" name='unif_cell_size' placeholder='unif_cell_size' required="required">
+            <input type="text" name='unif_cell_shape' placeholder='unif_cell_shape' required="required">
+            <input type="text" name='marg_adhesion' placeholder='marg_adhesion' required="required">
+            <input type="text" name='single_epith_cell_size' placeholder='single_epith_cell_size' required="required">
+            <input type="text" name='bland_chrom' placeholder='bland_chrom' required="required">
+            <input type="text" name='norm_nucleoli' placeholder='norm_nucleoli' required="required">
+            <input type="text" name='mitoses' placeholder='mitoses' required="required">
+            <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+        </form>
+        <br>
+        <br>
+        {{ prediction_text }}
+    </body>
+</html>
+
